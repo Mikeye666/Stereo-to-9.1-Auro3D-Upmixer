@@ -1,0 +1,40 @@
+<html>
+<body>
+<script src="resources/eml_report_loadable_data.js"></script>
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="97,1" id="srcline1"> 1</a></span><span class="line"><span class="keyword">function</span> createPluginInstance(<span class="var type1" id="S2T2U5">thisPtr</span>, <span class="var type1" id="S3T12U6">varargin</span>)  <span class="comment">%codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="97,2" id="srcline2"> 2</a></span><span class="line">coder.allowpcode(<span class="string">'plain'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,3" id="srcline3"> 3</a></span><span class="line">audioPlugin.wormholeToConstructor(<span class="var type1" id="S2T2U18">thisPtr</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,4" id="srcline4"> 4</a></span><span class="line"><span class="mxinfo " id="T1:U4"><span class="var type1" id="S6T1U21">plugin</span> = <span class="mxinfo " id="T1:U6"><span class="fcn" id="F139N18:B23">getPluginInstance</span>(<span class="var type1" id="S3T12U25">varargin</span>{:})</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="97,5" id="srcline5"> 5</a></span><span class="line"><span class="keyword">if</span> ~coder.target(<span class="string">'MATLAB'</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="97,6" id="srcline6"> 6</a></span><span class="line">    <span class="fcn" id="F465N11:B37">registerParameterDecorrelation_Strength</span>(<span class="var type1" id="S2T2U38">thisPtr</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,7" id="srcline7"> 7</a></span><span class="line">    <span class="fcn" id="F466N13:B41">registerParameterWidth</span>(<span class="var type1" id="S2T2U42">thisPtr</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,8" id="srcline8"> 8</a></span><span class="line">    <span class="fcn" id="F467N12:B45">registerParameterOutput_Gain</span>(<span class="var type1" id="S2T2U46">thisPtr</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,9" id="srcline9"> 9</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="97,10" id="srcline10">10</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="97,11" id="srcline11">11</a></span><span class="line"></span></span>
+</pre>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="97,12" id="srcline12">12</a></span><span class="line">function registerParameterDecorrelation_Strength(thisPtr)</span></span>
+<span class="srcline"><span class="lineno"><a href="97,13" id="srcline13">13</a></span><span class="line">name = ['Decorrelation_Strength' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,14" id="srcline14">14</a></span><span class="line">label = ['' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,15" id="srcline15">15</a></span><span class="line">coder.ceval('baseRegisterDoubleParam',thisPtr, int32(0), coder.rref(name), 1, 0, 1, .001, coder.rref(label), 1);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,16" id="srcline16">16</a></span><span class="line">end</span></span>
+<span class="srcline"><span class="lineno"><a href="97,17" id="srcline17">17</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="97,18" id="srcline18">18</a></span><span class="line">function registerParameterWidth(thisPtr)</span></span>
+<span class="srcline"><span class="lineno"><a href="97,19" id="srcline19">19</a></span><span class="line">name = ['Width' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,20" id="srcline20">20</a></span><span class="line">label = ['' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,21" id="srcline21">21</a></span><span class="line">coder.ceval('baseRegisterDoubleParam',thisPtr, int32(1), coder.rref(name), 0.5, 0, 1, .001, coder.rref(label), 1);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,22" id="srcline22">22</a></span><span class="line">end</span></span>
+<span class="srcline"><span class="lineno"><a href="97,23" id="srcline23">23</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="97,24" id="srcline24">24</a></span><span class="line">function registerParameterOutput_Gain(thisPtr)</span></span>
+<span class="srcline"><span class="lineno"><a href="97,25" id="srcline25">25</a></span><span class="line">name = ['Output_Gain' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,26" id="srcline26">26</a></span><span class="line">label = ['' char(0)];</span></span>
+<span class="srcline"><span class="lineno"><a href="97,27" id="srcline27">27</a></span><span class="line">coder.ceval('baseRegisterDoubleParam',thisPtr, int32(2), coder.rref(name), 2, 0, 2, .001, coder.rref(label), 1);</span></span>
+<span class="srcline"><span class="lineno"><a href="97,28" id="srcline28">28</a></span><span class="line">end</span></span>
+<span class="srcline"><span class="lineno"><a href="97,29" id="srcline29">29</a></span><span class="line"> </span></span>
+</pre>
+</div>
+</body>
+</html>
