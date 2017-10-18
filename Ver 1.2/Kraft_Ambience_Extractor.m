@@ -27,7 +27,7 @@ classdef Kraft_Ambience_Extractor < audioPlugin
         windowFuncOutput;
         
         Decorrelation_Strength = 1;
-        Output_Gain = 2;
+        Output_Gain = 1;
         
         RLR;
         RS_Fr;
@@ -104,11 +104,9 @@ classdef Kraft_Ambience_Extractor < audioPlugin
             end
             
             %   output buffering
-%             out = plugin.outputBuffer((plugin.loadedVectorNumThisHop-1)*plugin.inputVectorSize+1:plugin.loadedVectorNumThisHop*plugin.inputVectorSize,:);
-%             out = plugin.outputBuffer((plugin.inputVectorSize+1):end,:); in];
-                out = plugin.outputBuffer(1:plugin.inputVectorSize,:);
-                %   the earliest hop size of signal is discarded from buffer
-                plugin.outputBuffer = [plugin.outputBuffer(plugin.inputVectorSize+1:end,:); zeros(plugin.inputVectorSize,plugin.outputChanNum)];
+            out = plugin.outputBuffer(1:plugin.inputVectorSize,:);
+            %   the earliest hop size of signal is discarded from buffer
+            plugin.outputBuffer = [plugin.outputBuffer(plugin.inputVectorSize+1:end,:); zeros(plugin.inputVectorSize,plugin.outputChanNum)];
 
             if (plugin.loadedVectorNumThisHop == plugin.inputVectorNumPerHop)
                 %   clear the loading count
@@ -165,14 +163,14 @@ classdef Kraft_Ambience_Extractor < audioPlugin
             OUT(:, 3:4) = [OUT(:,1).*plugin.H_A_Rr, OUT(:,2).*plugin.H_A_Rr];
             OUT(:, 7:8) = OUT(:, 3:4);
             
-%             OUT(:, 1:2) = [OUT(:,1).*plugin.H_A_Lo, OUT(:,2).*plugin.H_A_Lo];
             OUT(:, 3:4) = [OUT(:,3).*plugin.H_A_Lo, OUT(:,4).*plugin.H_A_Lo];
-%             OUT(:, 5:6) = [OUT(:,5).*plugin.H_A_Hi, OUT(:,6).*plugin.H_A_Hi];
             OUT(:, 7:8) = [OUT(:,7).*plugin.H_A_Hi, OUT(:,8).*plugin.H_A_Hi];
             
             out = real(ifft(OUT, 2*plugin.windowSize));
             out = out(1:plugin.windowSize, :);
-            out = out*plugin.Output_Gain;
+            %   multiple by 2 to compromise for the half power loss when
+            %   doing fft and ifft
+            out = out*plugin.Output_Gain*2;
         end
         
         function initializeProcessingBuffer(plugin)
@@ -198,7 +196,7 @@ classdef Kraft_Ambience_Extractor < audioPlugin
             plugin.H_A_Fr = 1-plugin.H_A_Rr;
             
             plugin.H_A_Rr = 2*plugin.H_A_Rr;
-            plugin.H_A_Fr = 2*plugin.H_A_Fr
+            plugin.H_A_Fr = 2*plugin.H_A_Fr;
             
             plugin.H_A_Lo = plugin.sigmaLoHi;
             plugin.H_A_Hi = 1-plugin.H_A_Lo;
