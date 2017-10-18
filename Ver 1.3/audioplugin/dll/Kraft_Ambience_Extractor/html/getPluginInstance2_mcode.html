@@ -1,0 +1,16 @@
+<html>
+<body>
+<script src="resources/eml_report_loadable_data.js"></script>
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="2,1" id="srcline1"> 1</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S2T1U3">y</span> = getPluginInstance(<span class="var type1" id="S3T10U6">varargin</span>)  <span class="comment">%codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="2,2" id="srcline2"> 2</a></span><span class="line">coder.inline(<span class="string">'never'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="2,3" id="srcline3"> 3</a></span><span class="line">coder.allowpcode(<span class="string">'plain'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="2,4" id="srcline4"> 4</a></span><span class="line"><span class="keyword">persistent</span> <span class="var type1" id="S5T1U20">plugin</span></span></span>
+<span class="srcline"><span class="lineno"><a href="2,5" id="srcline5"> 5</a></span><span class="line"><span class="keyword">if</span> <span class="mxinfo " id="T2:U4">isempty(<span class="var type0" id="S5T0U25">plugin</span>)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="2,6" id="srcline6"> 6</a></span><span class="line">    <span class="mxinfo " id="T1:U5"><span class="var type1" id="S5T1U28">plugin</span> = <span class="mxinfo " id="T1:U7"><span class="fcn" id="F3N7:B30">derivedAudioPlugin</span>(<span class="var type1" id="S3T10U32">varargin</span>{:})</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="2,7" id="srcline7"> 7</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="2,8" id="srcline8"> 8</a></span><span class="line"><span class="mxinfo " id="T1:U9"><span class="var type1" id="S2T1U36">y</span> = <span class="var type1" id="S5T1U37">plugin</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="2,9" id="srcline9"> 9</a></span><span class="line"><span class="keyword">end</span></span></span>
+</pre>
+</body>
+</html>
