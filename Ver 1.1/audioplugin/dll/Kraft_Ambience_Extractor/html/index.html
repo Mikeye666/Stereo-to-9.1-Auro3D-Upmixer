@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Code Generation Report</title>
+<link rel="stylesheet" type="text/css" href="resources/eml_report.css" />
+<link rel="stylesheet" type="text/css" href="resources/jQuery/ui.resizable.css" />
+<link rel="stylesheet" type="text/css" href="index.css" />
+<style>
+	pre.code{
+		-moz-tab-size: 4; /* For Firefox */
+		-o-tab-size: 4; /* For Opera 10.6-12.1 */
+		tab-size: 4; /* For Chrome */
+	}
+</style>
+<script type="text/javascript" src="resources/jQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="resources/jQuery/jquery-ui-1.7.custom.min.js"></script>
+<script type="text/javascript" src="resources/jQuery/jquery.tablesorter.mod.js"></script>
+<script type="text/javascript" src="resources/jQuery/jquery.hotkeys-0.7.8.js"></script>
+<script type="text/javascript" src="resources/eml_report_interactions.js"></script>
+<script type="text/javascript" src="resources/eml_report_layout.js"></script>
+<script type="text/javascript" src="rtwshrink.js"></script>
+<script type="text/javascript">
+var localizedMessages = {
+    callSelectPrompt: "Select a function call:",
+    callSelectSource: "Calls from this function",
+    callSelectTarget: "Calls to this function",
+    infoForExpression: "Information for the selected expression:",
+    infoForVarType: "Information for the selected variable:",
+    infoForVarConst: "Information for the selected compile-time constant:",
+    infoForVarNone: "This variable does not have information associated with it.",
+    infoForFilter: "Matched {0}/{1} functions, {2}/{3} methods",
+    autoExtrinsicCall: "Only supported within the MATLAB environment."
+};
+var keyBindings = {
+        selectMCodeTab: "Ctrl+m",
+    selectCallStackTab: "Ctrl+k",
+        selectCCodeTab: "Ctrl+c",
+       selectReportTab: "Ctrl+r",
+     selectCenterPanel: "Ctrl+w",
+      selectSummaryTab: "Ctrl+s",
+     selectMessagesTab: "Ctrl+a",
+    selectWatchListTab: "Ctrl+v",
+     selectBuildLogTab: "Ctrl+t",
+    clearAllHighlights: "Esc"
+};
+var functionInfoTable = {
+ MATLABcode1: "resetCImpl1_mcode.html",
+ fpath1: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/resetCImpl.m",
+ lines1: [1, 1, 9],
+ watch1: "resetCImpl1_watch.html",
+ title1: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/resetCImpl.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/resetCImpl.m')\">resetCImpl</a></span>",
+ tcall1: [  ],
+ scall1: [ [ "From line 3 to getPluginInstance", "139#srcline1" ], [ "From line 7 to Kraft_Ambience_Extractor/reset", "141#srcline102" ] ],
+ MATLABcode9: "initializeProcessingBuffer9_mcode.html",
+ fpath9: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines9: [150, 151, 156],
+ watch9: "initializeProcessingBuffer9_watch.html",
+ title9: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/initializeProcessingBuffer</a></span>",
+ tcall9: [ [ "From Kraft_Ambience_Extractor/Kraft_Ambience_Extractor line 65", "137#F9N5:B133" ] ],
+ scall9: [  ],
+ MATLABcode136: "initializeFilters136_mcode.html",
+ fpath136: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines136: [155, 156, 175],
+ watch136: "initializeFilters136_watch.html",
+ title136: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/initializeFilters</a></span>",
+ tcall136: [ [ "From Kraft_Ambience_Extractor/Kraft_Ambience_Extractor line 76", "137#F136N4:B230" ], [ "From Kraft_Ambience_Extractor/set.Decorrelation_Strength line 113", "459#F136N4:B418" ] ],
+ scall136: [  ],
+ MATLABcode137: "Kraft_Ambience_Extractor137_mcode.html",
+ fpath137: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines137: [63, 63, 79],
+ watch137: "Kraft_Ambience_Extractor137_watch.html",
+ title137: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/Kraft_Ambience_Extractor</a></span>",
+ tcall137: [ [ "From derivedAudioPlugin/derivedAudioPlugin line 5", "138#F137N2:B17" ] ],
+ scall137: [ [ "From line 65 to Kraft_Ambience_Extractor/initializeProcessingBuffer", "9#srcline151" ], [ "From line 76 to Kraft_Ambience_Extractor/initializeFilters", "136#srcline156" ] ],
+ MATLABcode138: "derivedAudioPlugin138_mcode.html",
+ fpath138: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/derivedAudioPlugin.m",
+ lines138: [3, 3, 8],
+ watch138: "derivedAudioPlugin138_watch.html",
+ title138: "Method: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/derivedAudioPlugin.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/derivedAudioPlugin.m')\">derivedAudioPlugin/derivedAudioPlugin</a></span>",
+ tcall138: [ [ "From getPluginInstance line 6", "139#F138N14:B30" ] ],
+ scall138: [ [ "From line 5 to Kraft_Ambience_Extractor/Kraft_Ambience_Extractor", "137#srcline63" ] ],
+ MATLABcode139: "getPluginInstance139_mcode.html",
+ fpath139: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/getPluginInstance.m",
+ lines139: [1, 1, 10],
+ watch139: "getPluginInstance139_watch.html",
+ title139: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/getPluginInstance.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/getPluginInstance.m')\">getPluginInstance</a></span>",
+ tcall139: [ [ "From resetCImpl line 3", "1#F139N18:B15" ], [ "From processEntryPoint line 3", "142#F139N18:B26" ], [ "From onParamChangeCImpl line 3", "458#F139N18:B17" ], [ "From createPluginInstance line 4", "460#F139N18:B23" ] ],
+ scall139: [ [ "From line 6 to derivedAudioPlugin/derivedAudioPlugin", "138#srcline3" ] ],
+ MATLABcode141: "reset141_mcode.html",
+ fpath141: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines141: [102, 102, 107],
+ watch141: "reset141_watch.html",
+ title141: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/reset</a></span>",
+ tcall141: [ [ "From resetCImpl line 7", "1#F141N8:B30" ] ],
+ scall141: [  ],
+ MATLABcode142: "processEntryPoint142_mcode.html",
+ fpath142: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/processEntryPoint.m",
+ lines142: [1, 1, 15],
+ watch142: "processEntryPoint142_watch.html",
+ title142: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/processEntryPoint.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/processEntryPoint.m')\">processEntryPoint</a></span>",
+ tcall142: [  ],
+ scall142: [ [ "From line 3 to getPluginInstance", "139#srcline1" ], [ "From line 5 to Kraft_Ambience_Extractor/process", "457#srcline79" ] ],
+ MATLABcode438: "Kraft_ambience_extraction438_mcode.html",
+ fpath438: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines438: [123, 124, 151],
+ watch438: "Kraft_ambience_extraction438_watch.html",
+ title438: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/Kraft_ambience_extraction</a></span>",
+ tcall438: [ [ "From Kraft_Ambience_Extractor/process line 89", "457#F438N3:B265" ] ],
+ scall438: [  ],
+ MATLABcode456: "midSideProcessing456_mcode.html",
+ fpath456: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines456: [115, 116, 124],
+ watch456: "midSideProcessing456_watch.html",
+ title456: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/midSideProcessing</a></span>",
+ tcall456: [ [ "From Kraft_Ambience_Extractor/process line 96", "457#F456N6:B340" ], [ "From Kraft_Ambience_Extractor/process line 97", "457#F456N6:B357" ], [ "From Kraft_Ambience_Extractor/process line 98", "457#F456N6:B374" ], [ "From Kraft_Ambience_Extractor/process line 99", "457#F456N6:B391" ] ],
+ scall456: [  ],
+ MATLABcode457: "process457_mcode.html",
+ fpath457: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines457: [78, 79, 102],
+ watch457: "process457_watch.html",
+ title457: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/process</a></span>",
+ tcall457: [ [ "From processEntryPoint line 5", "142#F457N7:B37" ] ],
+ scall457: [ [ "From line 89 to Kraft_Ambience_Extractor/Kraft_ambience_extraction", "438#srcline124" ], [ "From line 96 to Kraft_Ambience_Extractor/midSideProcessing", "456#srcline116" ], [ "From line 97 to Kraft_Ambience_Extractor/midSideProcessing", "456#srcline116" ], [ "From line 98 to Kraft_Ambience_Extractor/midSideProcessing", "456#srcline116" ], [ "From line 99 to Kraft_Ambience_Extractor/midSideProcessing", "456#srcline116" ] ],
+ MATLABcode458: "onParamChangeCImpl458_mcode.html",
+ fpath458: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/onParamChangeCImpl.m",
+ lines458: [1, 1, 13],
+ watch458: "onParamChangeCImpl458_watch.html",
+ title458: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/onParamChangeCImpl.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/onParamChangeCImpl.m')\">onParamChangeCImpl</a></span>",
+ tcall458: [  ],
+ scall458: [ [ "From line 3 to getPluginInstance", "139#srcline1" ], [ "From line 6 to Kraft_Ambience_Extractor/set.Decorrelation_Strength", "459#srcline107" ] ],
+ MATLABcode459: "set46Decorrelation_Strength459_mcode.html",
+ fpath459: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ lines459: [106, 107, 116],
+ watch459: "set46Decorrelation_Strength459_watch.html",
+ title459: "Method: <span class='functionname'><a title='/Users/yexuzhou/Documents/NYU&nbsp;Courseworks/Thesis/matlab&nbsp;code/Ambient&nbsp;Extractor&nbsp;(Kraft&nbsp;and&nbsp;Zolzer)&nbsp;/Kraft&nbsp;Ambience&nbsp;Extraction&nbsp;Plugin&nbsp;improved/Kraft_Ambience_Extractor.m' class='functionlink' href=\"matlab: open('/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m')\">Kraft_Ambience_Extractor/set.Decorrelation_Strength</a></span>",
+ tcall459: [ [ "From onParamChangeCImpl line 6", "458#F459N9:B26" ] ],
+ scall459: [ [ "From line 113 to Kraft_Ambience_Extractor/initializeFilters", "136#srcline156" ] ],
+ MATLABcode460: "createPluginInstance460_mcode.html",
+ fpath460: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m",
+ lines460: [1, 1, 12],
+ watch460: "createPluginInstance460_watch.html",
+ title460: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m')\">createPluginInstance</a></span>",
+ tcall460: [  ],
+ scall460: [ [ "From line 4 to getPluginInstance", "139#srcline1" ], [ "From line 6 to createPluginInstance > registerParameterDecorrelation_Strength", "465#srcline12" ], [ "From line 7 to createPluginInstance > registerParameterWidth", "466#srcline18" ], [ "From line 8 to createPluginInstance > registerParameterOutput_Gain", "467#srcline24" ] ],
+ MATLABcode465: "registerParameterDecorrelation_Strength465_mcode.html",
+ fpath465: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m",
+ lines465: [11, 12, 18],
+ watch465: "registerParameterDecorrelation_Strength465_watch.html",
+ title465: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m')\">createPluginInstance &gt; registerParameterDecorrelation_Strength</a></span>",
+ tcall465: [ [ "From createPluginInstance line 6", "460#F465N11:B37" ] ],
+ scall465: [  ],
+ MATLABcode466: "registerParameterWidth466_mcode.html",
+ fpath466: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m",
+ lines466: [17, 18, 24],
+ watch466: "registerParameterWidth466_watch.html",
+ title466: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m')\">createPluginInstance &gt; registerParameterWidth</a></span>",
+ tcall466: [ [ "From createPluginInstance line 7", "460#F466N13:B41" ] ],
+ scall466: [  ],
+ MATLABcode467: "registerParameterOutput_Gain467_mcode.html",
+ fpath467: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m",
+ lines467: [23, 24, 29],
+ watch467: "registerParameterOutput_Gain467_watch.html",
+ title467: "Function: <span class='functionname'><a title='/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m' class='functionlink' href=\"matlab: open('/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m')\">createPluginInstance &gt; registerParameterOutput_Gain</a></span>",
+ tcall467: [ [ "From createPluginInstance line 8", "460#F467N12:B45" ] ],
+ scall467: [  ],
+ rootFcnID: "460",
+ firstPage: "460",
+ htmlRoot: "/Users/yexuzhou/Documents/NYU%20Courseworks/Thesis/matlab%20code/Ambient%20Extractor%20(Kraft%20and%20Zolzer)%20/Kraft%20Ambience%20Extraction%20Plugin%20improved/audioplugin/dll/Kraft_Ambience_Extractor/html/"
+};
+var scriptInfoTable = {
+ fpath1: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/resetCImpl.m",
+ fpath2: "/Applications/MATLAB_R2017a.app/toolbox/coder/coder/+coder/+internal/matlabCodegenHandle.p",
+ fpath3: "/Applications/MATLAB_R2017a.app/toolbox/audio/audio/compiled/audioPlugin.p",
+ fpath4: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/isBuiltInNumeric.m",
+ fpath5: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/floor.m",
+ fpath6: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/applyScalarFunctionInPlace.m",
+ fpath7: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/floor.m",
+ fpath8: "/Users/yexuzhou/Documents/NYU Courseworks/Thesis/matlab code/Ambient Extractor (Kraft and Zolzer) /Kraft Ambience Extraction Plugin improved/Kraft_Ambience_Extractor.m",
+ fpath9: "/Applications/MATLAB_R2017a.app/toolbox/signal/eml/hann.m",
+ fpath10: "/Applications/MATLAB_R2017a.app/toolbox/shared/coder/coder/+coder/+internal/narginchk.m",
+ fpath11: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/assertValidSizeArg.m",
+ fpath12: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/isinf.m",
+ fpath13: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/isIntegerClass.m",
+ fpath14: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/intmax.m",
+ fpath15: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/intmin.m",
+ fpath16: "/Applications/MATLAB_R2017a.app/toolbox/shared/coder/coder/+coder/+internal/indexIntRelop.m",
+ fpath17: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/floatModel.m",
+ fpath18: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/scalarEg.m",
+ fpath19: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/fixedpoint/isnumerictype.m",
+ fpath20: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/fixedpoint/isfimath.m",
+ fpath21: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/fixedpoint/isfi.m",
+ fpath22: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m",
+ fpath23: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/scalexpAllocNoCheck.m",
+ fpath24: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/scalexpAlloc.m",
+ fpath25: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/minOrMax.m",
+ fpath26: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/max.m",
+ fpath27: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/repmat.m",
+ fpath28: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/prodsize.m",
+ fpath29: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_is_rand_extrinsic.m",
+ fpath30: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_str2id.m",
+ fpath31: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_mcg16807.m",
+ fpath32: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_mcg16807_stateful.m",
+ fpath33: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_shr3cong.m",
+ fpath34: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_shr3cong_stateful.m",
+ fpath35: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/eml_rand_mt19937ar.m",
+ fpath36: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/private/eml_eps.m",
+ fpath37: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/eps.m",
+ fpath38: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/scalexpCompatible.m",
+ fpath39: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/div.m",
+ fpath40: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/ops/rdivide.m",
+ fpath41: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/ops/mrdivide.p",
+ fpath42: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/private/eml_isequal_core.m",
+ fpath43: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/isnan.m",
+ fpath44: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elmat/isequal.m",
+ fpath45: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/indexPlus.m",
+ fpath46: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/error.m",
+ fpath47: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand_mt19937ar_stateful.m",
+ fpath48: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/private/eml_rand.m",
+ fpath49: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/randfun/rand.m",
+ fpath50: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/ops/eml_mtimes_helper.m",
+ fpath51: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/sparfun/issparse.m",
+ fpath52: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/useParforConst.m",
+ fpath53: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/atan.m",
+ fpath54: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/atan.m",
+ fpath55: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/derivedAudioPlugin.m",
+ fpath56: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/getPluginInstance.m",
+ fpath57: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/processEntryPoint.m",
+ fpath58: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/cat.m",
+ fpath59: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/constNonSingletonDim.m",
+ fpath60: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/unsignedClass.m",
+ fpath61: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/eml_fft.m",
+ fpath62: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/alloc_fft_output.m",
+ fpath63: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/sizeIsPow2.m",
+ fpath64: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/eml/eml_size_ispow2.m",
+ fpath65: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/isaUint.m",
+ fpath66: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/nextpow2.m",
+ fpath67: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/nextpow2.m",
+ fpath68: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/ops/bitshift.m",
+ fpath69: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/relop.m",
+ fpath70: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/indexDivide.m",
+ fpath71: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/cos.m",
+ fpath72: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/cos.m",
+ fpath73: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/sin.m",
+ fpath74: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/sin.m",
+ fpath75: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/min.m",
+ fpath76: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/bluestein_setup.m",
+ fpath77: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/exp.m",
+ fpath78: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/exp.m",
+ fpath79: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/length.m",
+ fpath80: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/conjtimes.m",
+ fpath81: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/fft.m",
+ fpath82: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/xdlapy2.m",
+ fpath83: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/abs.m",
+ fpath84: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/applyScalarFunction.m",
+ fpath85: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/abs.m",
+ fpath86: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/ops/power.m",
+ fpath87: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/assertValidDim.m",
+ fpath88: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/process_sumprod_inputs.m",
+ fpath89: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/combine_vector_elements.m",
+ fpath90: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/private/sumprod.m",
+ fpath91: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/sum.m",
+ fpath92: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/isDomainError.m",
+ fpath93: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/+scalar/sqrt.m",
+ fpath94: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/elfun/sqrt.m",
+ fpath95: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/datafun/ifft.m",
+ fpath96: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/onParamChangeCImpl.m",
+ fpath97: "/private/tmp/tp32860a91_0166_4283_ac58_e310cbd20784/createPluginInstance.m",
+ fpath98: "/Applications/MATLAB_R2017a.app/toolbox/eml/eml/+coder/+internal/charCastCheck.m",
+ fpath99: "/Applications/MATLAB_R2017a.app/toolbox/eml/lib/matlab/strfun/char.m"
+};
+</script>
+</head>
+<body>
+
+<div class="west">
+<ul class="ui-tabs-nav">
+<li class="ui-tabs-nav-item ui-tabs-selected"><span class="tab-link" id="MATLABcode"><span>MATLAB code</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="callstack"><span>Call stack</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="ccode"><span>C code</span></span></li>
+</ul>
+<div id="MATLABcodebody" class="ui-tabs-panel">
+<!-- Begin Filter -->
+<div class="grayline methodset" onclick="filterClick(event);">
+<a class="collapsed">Filter</a>
+</div>
+<div id="filterbody" class="hidden">
+<table class="myfunc-filter-tbl">
+<tr>
+<td title="Use this filter to display only functions and methods that contain variables or expressions with the specified attributes." colspan="2" class="checkbox">
+<div class="myfunc-filterby-chk"><input type="checkbox" class="filterenable" />
+<div class="filter-enable-lbl">Filter functions and methods</div></div></td></tr><tr>
+<td class="label"><div class="myfunc-filterby-lbl">Filter by:</div></td>
+<td class="select">
+<div class="filters">
+<select class="myfunc-filterby">
+<option id="size">Size</option>
+<option id="complex">Complexity</option>
+<option id="class">Class</option>
+</select>
+</div>
+</td>
+</tr>
+
+<tr>
+<td class="label"><div class="myfunc-filterstr-lbl">Filter:</div></td>
+<td class="input"><div>
+
+<div class="size">
+<select class="myfunc-filter size">
+<option value="138 139 460">1 x 0</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460 465 466 467">1 x 1</option>
+<option value="467">1 x 12</option>
+<option value="465">1 x 23</option>
+<option value="466">1 x 6</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460">2048 x 1</option>
+<option value="438">2048 x 2</option>
+<option value="137">2048 x 3</option>
+<option value="438">2048 x 8</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460">2048 x <b>:</b>?</option>
+<option value="142"><b>:</b>4096 x 1</option>
+<option value="457"><b>:</b>4096 x 2</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460"><b>:</b>? x 1</option>
+<option value="456"><b>:</b>? x 2</option>
+<option value="438 457"><b>:</b>? x 8</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460"><b>:</b>? x <b>:</b>?</option>
+</select>
+</div>
+
+<div class="complex">
+<select class="myfunc-filter complex">
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460">Complex values</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460 465 466 467">Real values</option>
+</select>
+</div>
+<!-- Begin Class Filter -->
+<div class="class">
+<select class="myfunc-filter class">
+<option value="138 139 460">cell</option>
+<option value="465 466 467">char</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460">derivedAudioPlugin</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460">double</option>
+<option value="458">int32</option>
+<option value="1 9 136 137 138 139 141 142 438 456 457 458 459 460 465 466 467">uint64</option>
+</select>
+</div>
+<!-- End Class Filter -->
+</div>
+</td>
+</tr>
+</table>
+<div class="myfunc-count"></div>
+</div>
+<!-- End Filter -->
+<div class="grayline methodset" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="functionSetClick(event);">
+<a class="expanded">Functions</a>
+</div>
+<!-- Begin Function Tree -->
+<div id="functiontreebody">
+<div class="functionwrapper" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="functionTreeClick(event);">
+<ol class="tree">
+<!-- Begin Function Tree Roots -->
+<li class="leaf  passed"><a href="#" class="fcn  " id="F460N10:F1">createPluginInstance</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F465N11:F2">createPluginInstance &gt; registerParameterDecorrelation_Strength</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F467N12:F3">createPluginInstance &gt; registerParameterOutput_Gain</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F466N13:F4">createPluginInstance &gt; registerParameterWidth</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F139N18:F5">getPluginInstance</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F458N19:F6">onParamChangeCImpl</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F142N20:F7">processEntryPoint</a></li>
+<li class="leaf  passed"><a href="#" class="fcn  " id="F1N21:F8">resetCImpl</a></li>
+<!-- End Function Tree Roots -->
+</ol>
+<!-- Function Tree Nodes -->
+<div class="functiontreenodes hidden">
+</div>
+<!-- End Function Tree Nodes -->
+</div>
+</div>
+<!-- End Function Tree -->
+<!-- Begin Class Tree -->
+<div class="grayline methodset" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="methodSetClick(event);">
+<a class="expanded">Classes</a>
+</div>
+<div id="classlistbody">
+<div class="classwrapper" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="classTreeClick(event);">
+<ol class="tree">
+<!-- Begin Class Tree Roots -->
+<li class="node collapsed passed"><a class="classroot" id="F137N2:M10" title="Kraft_Ambience_Extractor">Kraft_Ambience_Extractor</a></li>
+<li class="node collapsed passed"><a class="classroot" id="F138N14:M11" title="derivedAudioPlugin">derivedAudioPlugin</a></li>
+<!-- End Class Tree Roots -->
+</ol>
+<!-- Class Tree Nodes -->
+<div class="classlistnodes hidden">
+<ol class="callstacknode" id="callstacknode137">
+<li class="node collapsed"><a>Kraft_Ambience_Extractor</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn  " id="F137N2:m1" title="Kraft_Ambience_Extractor/Kraft_Ambience_Extractor">Kraft_Ambience_Extractor</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F438N3:m2" title="Kraft_Ambience_Extractor/Kraft_ambience_extraction">Kraft_ambience_extraction</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F136N4:m3" title="Kraft_Ambience_Extractor/initializeFilters">initializeFilters</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F9N5:m4" title="Kraft_Ambience_Extractor/initializeProcessingBuffer">initializeProcessingBuffer</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F456N6:m5" title="Kraft_Ambience_Extractor/midSideProcessing">midSideProcessing</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F457N7:m6" title="Kraft_Ambience_Extractor/process">process</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F141N8:m7" title="Kraft_Ambience_Extractor/reset">reset</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F459N9:m8" title="Kraft_Ambience_Extractor/set.Decorrelation_Strength">set.Decorrelation_Strength</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode138">
+<li class="node collapsed"><a>derivedAudioPlugin</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn  " id="F138N14:m9" title="derivedAudioPlugin/derivedAudioPlugin">derivedAudioPlugin</a></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- End Class Tree -->
+</div>
+<!-- Begin Call Tree -->
+<div id="callstackbody" class="ui-tabs-panel hidden">
+<div class="treewrapper" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="callTreeClick(event);">
+<ol class="tree">
+<!-- Call Tree Root -->
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F460N10:L27">createPluginInstance</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:L28">getPluginInstance</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F465N11:L29">createPluginInstance &gt; registerParameterDecorrelation_Strength</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F466N13:L30">createPluginInstance &gt; registerParameterWidth</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F467N12:L31">createPluginInstance &gt; registerParameterOutput_Gain</a></li>
+</ul>
+</li>
+<!-- Call Tree Root -->
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F458N19:L22">onParamChangeCImpl</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:L23">getPluginInstance</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F459N9:L24" title="Kraft_Ambience_Extractor/set.Decorrelation_Strength">Kraft_Ambience_Extractor/set.Decorrelation_Strength</a></li>
+</ul>
+</li>
+<!-- Call Tree Root -->
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F142N20:L14">processEntryPoint</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:L15">getPluginInstance</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F457N7:L16" title="Kraft_Ambience_Extractor/process">Kraft_Ambience_Extractor/process</a></li>
+</ul>
+</li>
+<!-- Call Tree Root -->
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F1N21:L1">resetCImpl</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:L2">getPluginInstance</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F141N8:L3" title="Kraft_Ambience_Extractor/reset">Kraft_Ambience_Extractor/reset</a></li>
+</ul>
+</li>
+</ol>
+<!-- Call Tree Nodes -->
+<div class="callstacknodes hidden">
+<ol class="callstacknode" id="callstacknode1">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F1N21:l1">resetCImpl</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:l2">getPluginInstance</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F141N8:l3" title="Kraft_Ambience_Extractor/reset">Kraft_Ambience_Extractor/reset</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode9">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F9N5:l4" title="Kraft_Ambience_Extractor/initializeProcessingBuffer">Kraft_Ambience_Extractor/initializeProcessingBuffer</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode136">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F136N4:l5" title="Kraft_Ambience_Extractor/initializeFilters">Kraft_Ambience_Extractor/initializeFilters</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode137">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F137N2:l6" title="Kraft_Ambience_Extractor/Kraft_Ambience_Extractor">Kraft_Ambience_Extractor/Kraft_Ambience_Extractor</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn  " id="F9N5:l7" title="Kraft_Ambience_Extractor/initializeProcessingBuffer">Kraft_Ambience_Extractor/initializeProcessingBuffer</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F136N4:l8" title="Kraft_Ambience_Extractor/initializeFilters">Kraft_Ambience_Extractor/initializeFilters</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode138">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F138N14:l9" title="derivedAudioPlugin/derivedAudioPlugin">derivedAudioPlugin/derivedAudioPlugin</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F137N2:l10" title="Kraft_Ambience_Extractor/Kraft_Ambience_Extractor">Kraft_Ambience_Extractor/Kraft_Ambience_Extractor</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode139">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:l11">getPluginInstance</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F138N14:l12" title="derivedAudioPlugin/derivedAudioPlugin">derivedAudioPlugin/derivedAudioPlugin</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode141">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F141N8:l13" title="Kraft_Ambience_Extractor/reset">Kraft_Ambience_Extractor/reset</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode142">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F142N20:l14">processEntryPoint</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:l15">getPluginInstance</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F457N7:l16" title="Kraft_Ambience_Extractor/process">Kraft_Ambience_Extractor/process</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode438">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F438N3:l17" title="Kraft_Ambience_Extractor/Kraft_ambience_extraction">Kraft_Ambience_Extractor/Kraft_ambience_extraction</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode456">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F456N6:l18" title="Kraft_Ambience_Extractor/midSideProcessing">Kraft_Ambience_Extractor/midSideProcessing</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode457">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F457N7:l19" title="Kraft_Ambience_Extractor/process">Kraft_Ambience_Extractor/process</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn  " id="F438N3:l20" title="Kraft_Ambience_Extractor/Kraft_ambience_extraction">Kraft_Ambience_Extractor/Kraft_ambience_extraction</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F456N6:l21" title="Kraft_Ambience_Extractor/midSideProcessing">Kraft_Ambience_Extractor/midSideProcessing</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode458">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F458N19:l22">onParamChangeCImpl</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:l23">getPluginInstance</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F459N9:l24" title="Kraft_Ambience_Extractor/set.Decorrelation_Strength">Kraft_Ambience_Extractor/set.Decorrelation_Strength</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode459">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F459N9:l25" title="Kraft_Ambience_Extractor/set.Decorrelation_Strength">Kraft_Ambience_Extractor/set.Decorrelation_Strength</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn  " id="F136N4:l26" title="Kraft_Ambience_Extractor/initializeFilters">Kraft_Ambience_Extractor/initializeFilters</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode460">
+
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F460N10:l27">createPluginInstance</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn  " id="F139N18:l28">getPluginInstance</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F465N11:l29">createPluginInstance &gt; registerParameterDecorrelation_Strength</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F466N13:l30">createPluginInstance &gt; registerParameterWidth</a></li>
+<li class="leaf passed"><a href="#" class="fcn  " id="F467N12:l31">createPluginInstance &gt; registerParameterOutput_Gain</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode465">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F465N11:l32">createPluginInstance &gt; registerParameterDecorrelation_Strength</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode466">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F466N13:l33">createPluginInstance &gt; registerParameterWidth</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode467">
+
+<li class="leaf passed"><a href="#" class="fcn  " id="F467N12:l34">createPluginInstance &gt; registerParameterOutput_Gain</a>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<!-- End Call Tree -->
+<!-- Begin C Code -->
+<div id="ccodebody" class="ui-tabs-panel hidden">
+</div>
+<!-- End C Code -->
+</div>
+<!-- Tooltips -->
+<div class="aux hidden">
+<div class="tooltips">
+<div class="tooltip" id="TT1"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>derivedAudioPlugin</td></tr></table></div>
+<div class="tooltip" id="TT2"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>uint64</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT3"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT4"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x <b>:</b>?</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT5"><table class="tooltip"><tr><th>Size</th><td>2048 x <b>:</b>?</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT6"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT7"><table class="tooltip"><tr><th>Size</th><td>2048 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT8"><table class="tooltip"><tr><th>Size</th><td>2048 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT9"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>logical</td></tr></table></div>
+<div class="tooltip" id="TT10"><table class="tooltip"><tr><th>Size</th><td>1 x 5</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT11"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT12"><table class="tooltip"><tr><th>Size</th><td>1 x 0</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT13"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT14"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>mxArray</td></tr></table></div>
+<div class="tooltip" id="TT15"><table class="tooltip"><tr><th>Size</th><td>0 x 0</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT16"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT17"><table class="tooltip"><tr><th>Size</th><td>1 x 6</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT18"><table class="tooltip"><tr><th>Size</th><td>1 x 23</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT19"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT20"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>int32</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT21"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>uint8</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT22"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT23"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT24"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT25"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT26"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>?</td></tr><tr><th>Class</th><td>logical</td></tr></table></div>
+<div class="tooltip" id="TT27"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT28"><table class="tooltip"><tr><th>Size</th><td>1 x 15</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT29"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT30"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>uint32</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT31"><table class="tooltip"><tr><th>Size</th><td>1 x 8</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT32"><table class="tooltip"><tr><th>Size</th><td>1 x 9</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT33"><table class="tooltip"><tr><th>Size</th><td>1 x 13</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT34"><table class="tooltip"><tr><th>Size</th><td>1 x 16</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT35"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT36"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>uint32</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT37"><table class="tooltip"><tr><th>Size</th><td>625 x 1</td></tr><tr><th>Class</th><td>uint32</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT38"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT39"><table class="tooltip"><tr><th>Size</th><td>1 x 7</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT40"><table class="tooltip"><tr><th>Size</th><td>1 x 4</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT41"><table class="tooltip"><tr><th>Size</th><td>1 x 37</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT42"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT43"><table class="tooltip"><tr><th>Size</th><td>2048 x 3</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT44"><table class="tooltip"><tr><th>Size</th><td>2048 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT45"><table class="tooltip"><tr><th>Size</th><td><b>:</b>4096 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT46"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 2</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT47"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>4096</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT48"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT49"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT50"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT51"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT52"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT53"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT54"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT55"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT56"><table class="tooltip"><tr><th>Size</th><td><b>:</b>4096 x 2</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT57"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT58"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT59"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT60"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x <b>:</b>?</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT61"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT62"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT63"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT64"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>?</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT65"><table class="tooltip"><tr><th>Size</th><td>1 x 0</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT66"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT67"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT68"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT69"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT70"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT71"><table class="tooltip"><tr><th>Size</th><td>1 x 14</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT72"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT73"><table class="tooltip"><tr><th>Size</th><td>1 x 31</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT74"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>int8</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT75"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT76"><table class="tooltip"><tr><th>Size</th><td>1 x 30</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT77"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT78"><table class="tooltip"><tr><th>Size</th><td>2048 x 8</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT79"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 8</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT80"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 8</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT81"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT82"><table class="tooltip"><tr><th>Size</th><td>2048 x 2</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>Yes</td></tr></table></div>
+<div class="tooltip" id="TT83"><table class="tooltip"><tr><th>Size</th><td>8 x 1</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT84"><table class="tooltip"><tr><th>Size</th><td><b>:</b>4096 x <b>:</b>?</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT85"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT86"><table class="tooltip"><tr><th>Size</th><td>2 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT87"><table class="tooltip"><tr><th>Size</th><td>2048 x 8</td></tr><tr><th>Class</th><td>double</td></tr><tr><th>Complex</th><td>No</td></tr></table></div>
+<div class="tooltip" id="TT88"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT89"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT90"><table class="tooltip"><tr><th>Size</th><td>1 x 22</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT91"><table class="tooltip"><tr><th>Size</th><td>1 x 12</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT92"><table class="tooltip"><tr><th>Size</th><td>1 x 11</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+</div>
+</div>
+<!-- End Tooltips -->
+
+<div class="south">
+<ul class="ui-tabs-nav">
+<li class="ui-tabs-nav-item"><span class="tab-link" id="summary"><span>Summary</span></span></li>
+<li class="ui-tabs-nav-item ui-tabs-selected"><span class="tab-link" id="messages"><span>All Messages (1)</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="potentialDifferences"><span>Potential Differences</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="watchlist"><span>Variables</span></span></li>
+<li class="ui-tabs-nav-item hidden"><span class="tab-link" id="watchload"><span>Variables</span></span></li>
+</ul>
+
+<!-- Compilation Summary -->
+<div id="summarybody" class="ui-tabs-panel hidden">
+<table cellpadding="1" cellspacing="4">
+<tr><td>MATLAB code generation attempted on:</td><td>14-Oct-2017 17:07:40</td></tr>
+<tr><td>Coding target:</td><td>Dynamic Library</td></tr>
+<tr><td>Number of errors:</td><td><a href="javascript:selectMessagesTab();">1</a></td></tr>
+<tr><td>Number of warnings:</td><td><a href="javascript:selectMessagesTab();">0</a></td></tr>
+<tr><td>Number of notices:</td><td><a href="javascript:selectMessagesTab();">0</a></td></tr>
+<tr><td>Number of potential differences:</td><td><a href="javascript:selectPotentialDifferencesTab();">0</a></td></tr>
+</table>
+<p/><p/><table>
+<tr><td><b>Tell Us What You Think</b></td></tr>
+<tr><td>We value your feedback. Please take a few minutes to answer this short questionnaire regarding the Code Generation Report.</td></tr>
+<tr><td><a href="matlab: emlcprivate('launchReportSurvey');">&gt;&gt;Provide Feedback</a></td></tr>
+</table>
+</div>
+
+<!-- Message Table -->
+<div id="messagesbody" class="ui-tabs-panel">
+<table class="grid" summary="This table lists the messages produced during code generation." cellspacing="0" cellpadding="6">
+<thead>
+<tr>
+<th id="msgorder" scope="col"><div class="d1"><div class="d2"><a href="#">Order</a></div></div></th>
+<th id="msgtype" scope="col"><div class="d1"><div class="d2"><a href="#">Type</a></div></div></th>
+<th id="function" scope="col"><div class="d1"><div class="d2"><a href="#">Function</a></div></div></th>
+<th id="location" scope="col"><div class="d1"><div class="d2"><a href="#">Line</a></div></div></th>
+<th id="text" scope="col"><div class="d1"><div class="d2"><a href="#">Description</a></div></div></th>
+</tr>
+</thead>
+<tbody onmouseover="messagesMouseOver(event);" onmouseout="messagesMouseOut(event);" onclick="messagesClick(event);">
+<tr class="message error" id="M1F0">
+<td class="msgorder" headers="msgorder"><a href="#">1</a></td>
+<td class="failed" headers="msgtype"></td>
+<td class="function" headers="function"><div>&ndash;</div></td>
+<td class="location" headers="location"><div>&ndash;</div></td>
+<td class="text" headers="text"><div>Error constructing BuildInfo object.</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Watchlist Table -->
+<div id="watchlistbody" class="ui-tabs-panel hidden">
+</div>
+<div id="watchloadbody" class="ui-tabs-panel hidden">
+Loading Variables table ...
+</div>
+
+
+<!-- Potential Differences -->
+<div id="potentialDifferencesBody" class="ui-tabs-panel hidden">
+<div>Potential differences from MATLAB were not detected in the generated code.
+<a href="matlab:helpview('/Applications/MATLAB_R2017a.app/help/coder/helptargets.map','msginfo_Coder_reportGen_noPotentialDifferencesBannerText');">More information</a></div>
+</div>
+
+</div>
+<!-- Begin MATLAB Code Panel -->
+<div class="center">
+<div class="center-title">
+<div class="ui-tabs-nav-item ui-tabs-selected">
+<span class="functiontitle">
+</span>
+<!-- Begin Call Sites -->
+<span id="callsiteselecttable" class="call-sites-tbl">
+<span id="callsiteselectlabel" class="filtered">Calls:</span>
+<select id="callsiteselect" onchange="callSiteChange(event)">
+<option value="callsiteprompt">Select a function call:</option>
+</select>
+</span>
+<!-- End Call Sites -->
+</div>
+</div>
+<div class="ui-tabs-panel">
+<iframe id="hiddenCodeFrame"></iframe>
+<div class="code" onmouseover="mcodeMouseOver(event);" onmouseout="mcodeMouseOut(event);"onclick="mcodeClick(event);">
+</div>
+</div>
+</div>
+<!-- End MATLAB Code Panel -->
+</body>
+</html>
