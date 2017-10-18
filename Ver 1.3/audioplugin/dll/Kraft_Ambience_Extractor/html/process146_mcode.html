@@ -1,0 +1,221 @@
+<html>
+<body>
+<script src="resources/eml_report_loadable_data.js"></script>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="4,1" id="srcline1">  1</a></span><span class="line"><span class="keyword">classdef</span> Kraft_Ambience_Extractor &lt; audioPlugin</span></span>
+<span class="srcline"><span class="lineno"><a href="4,2" id="srcline2">  2</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="4,3" id="srcline3">  3</a></span><span class="line">    <span class="comment">% myBasicSourcePlugin is a template for a basic source plugin. Use this</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,4" id="srcline4">  4</a></span><span class="line">    <span class="comment">% template to create your own basic source plugin.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,5" id="srcline5">  5</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="4,6" id="srcline6">  6</a></span><span class="line">    <span class="keyword">properties</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,7" id="srcline7">  7</a></span><span class="line">        <span class="comment">% Use this section to initialize properties that the end-user</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,8" id="srcline8">  8</a></span><span class="line">        <span class="comment">% interacts with.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,9" id="srcline9">  9</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,10" id="srcline10"> 10</a></span><span class="line">        Width = 0.5;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,11" id="srcline11"> 11</a></span><span class="line">        IOBufferSize;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,12" id="srcline12"> 12</a></span><span class="line">        windowSize = 2048;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,13" id="srcline13"> 13</a></span><span class="line">        overlapRatio = 0.75;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,14" id="srcline14"> 14</a></span><span class="line">        hopSize;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,15" id="srcline15"> 15</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,16" id="srcline16"> 16</a></span><span class="line">        inputChanNum = 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,17" id="srcline17"> 17</a></span><span class="line">        outputChanNum = 8;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,18" id="srcline18"> 18</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,19" id="srcline19"> 19</a></span><span class="line">        inputVectorSize = -1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,20" id="srcline20"> 20</a></span><span class="line">        inputVectorNumPerHop = -1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,21" id="srcline21"> 21</a></span><span class="line">        loadedVectorNumThisHop = -1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,22" id="srcline22"> 22</a></span><span class="line">        inputBuffer;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,23" id="srcline23"> 23</a></span><span class="line">        outputBuffer;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,24" id="srcline24"> 24</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,25" id="srcline25"> 25</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,26" id="srcline26"> 26</a></span><span class="line">        windowFuncInput;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,27" id="srcline27"> 27</a></span><span class="line">        windowFuncOutput;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,28" id="srcline28"> 28</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,29" id="srcline29"> 29</a></span><span class="line">        Decorrelation_Strength = 1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,30" id="srcline30"> 30</a></span><span class="line">        Output_Gain = 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,31" id="srcline31"> 31</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,32" id="srcline32"> 32</a></span><span class="line">        RLR;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,33" id="srcline33"> 33</a></span><span class="line">        RS_Fr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,34" id="srcline34"> 34</a></span><span class="line">        sigmaLR;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,35" id="srcline35"> 35</a></span><span class="line">        sigmaBackFront;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,36" id="srcline36"> 36</a></span><span class="line">        sigmaLoHi;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,37" id="srcline37"> 37</a></span><span class="line">        H_A_L;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,38" id="srcline38"> 38</a></span><span class="line">        H_A_R;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,39" id="srcline39"> 39</a></span><span class="line">        H_A_Rr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,40" id="srcline40"> 40</a></span><span class="line">        H_A_Fr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,41" id="srcline41"> 41</a></span><span class="line">        H_A_Lo;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,42" id="srcline42"> 42</a></span><span class="line">        H_A_Hi;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,43" id="srcline43"> 43</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,44" id="srcline44"> 44</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,45" id="srcline45"> 45</a></span><span class="line">    <span class="keyword">properties</span> (Access = private)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,46" id="srcline46"> 46</a></span><span class="line">        <span class="comment">% Use this section to initialize properties that the end-user does</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,47" id="srcline47"> 47</a></span><span class="line">        <span class="comment">% not interact with directly.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,48" id="srcline48"> 48</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,49" id="srcline49"> 49</a></span><span class="line">    <span class="keyword">properties</span> (Constant)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,50" id="srcline50"> 50</a></span><span class="line">        PluginInterface = <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,51" id="srcline51"> 51</a></span><span class="line">            audioPluginInterface(<span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,52" id="srcline52"> 52</a></span><span class="line">            audioPluginParameter(<span class="string">'Decorrelation_Strength'</span>, <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,53" id="srcline53"> 53</a></span><span class="line">            <span class="string">'Mapping'</span>, {<span class="string">'lin'</span>,0, 1}), <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,54" id="srcline54"> 54</a></span><span class="line">            audioPluginParameter(<span class="string">'Width'</span>, <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,55" id="srcline55"> 55</a></span><span class="line">            <span class="string">'Mapping'</span>, {<span class="string">'lin'</span>, 0, 1}), <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,56" id="srcline56"> 56</a></span><span class="line">            audioPluginParameter(<span class="string">'Output_Gain'</span>, <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,57" id="srcline57"> 57</a></span><span class="line">            <span class="string">'Mapping'</span>, {<span class="string">'lin'</span>, 0, 2}), <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,58" id="srcline58"> 58</a></span><span class="line">            <span class="string">'InputChannels'</span>,2, <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,59" id="srcline59"> 59</a></span><span class="line">            <span class="string">'OutputChannels'</span>,8, <span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,60" id="srcline60"> 60</a></span><span class="line">            <span class="string">'PluginName'</span>,<span class="string">'Kraft Ambience Extractor (2 in / 8 out)'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,61" id="srcline61"> 61</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,62" id="srcline62"> 62</a></span><span class="line">    <span class="keyword">methods</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,63" id="srcline63"> 63</a></span><span class="line">        <span class="comment">%------------------------------------------------------------------</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,64" id="srcline64"> 64</a></span><span class="line">        <span class="comment">% Construct</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,65" id="srcline65"> 65</a></span><span class="line">        <span class="comment">%------------------------------------------------------------------</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,66" id="srcline66"> 66</a></span><span class="line">        <span class="keyword">function</span> plugin = Kraft_Ambience_Extractor</span></span>
+<span class="srcline"><span class="lineno"><a href="4,67" id="srcline67"> 67</a></span><span class="line">            plugin.hopSize = floor(plugin.windowSize*(1-plugin.overlapRatio));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,68" id="srcline68"> 68</a></span><span class="line">            <span class="comment">%initializeProcessingBuffer(plugin);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,69" id="srcline69"> 69</a></span><span class="line">            plugin.windowFuncInput = repmat(hann(2048),1,plugin.inputChanNum);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,70" id="srcline70"> 70</a></span><span class="line">            plugin.windowFuncOutput = repmat(hann(2048),1,plugin.outputChanNum);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,71" id="srcline71"> 71</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,72" id="srcline72"> 72</a></span><span class="line">            plugin.RLR = 2*rand(plugin.windowSize,1)-1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,73" id="srcline73"> 73</a></span><span class="line">            plugin.RS_Fr = 2*rand(plugin.windowSize,1)-1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,74" id="srcline74"> 74</a></span><span class="line">            sigmas = coder.load(<span class="string">'kraftFilterDataSigma_improved.dat'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,75" id="srcline75"> 75</a></span><span class="line">            plugin.sigmaLR = sigmas(:,1);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,76" id="srcline76"> 76</a></span><span class="line">            plugin.sigmaBackFront = sigmas(:,2);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,77" id="srcline77"> 77</a></span><span class="line">            plugin.sigmaLoHi = sigmas(:,3);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,78" id="srcline78"> 78</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,79" id="srcline79"> 79</a></span><span class="line">            <span class="comment">%initializeFilters(plugin);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,80" id="srcline80"> 80</a></span><span class="line">            reset(plugin);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,81" id="srcline81"> 81</a></span><span class="line">        <span class="keyword">end</span></span></span>
+</pre>
+</div>
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="4,82" id="srcline82"> 82</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,83" id="srcline83"> 83</a></span><span class="line">        <span class="keyword">function</span> <span class="var type1" id="S43T5U242">out</span> = process(<span class="var type1" id="S44T55U245">plugin</span>,<span class="var type1" id="S45T54U246">in</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,84" id="srcline84"> 84</a></span><span class="line">            <span class="comment">% This section contains instructions to produce the output</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,85" id="srcline85"> 85</a></span><span class="line">            <span class="comment">% audio signal. Use plugin.MyProperty to access a property of</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,86" id="srcline86"> 86</a></span><span class="line">            <span class="comment">% your plugin. Use getSamplesPerFrame(plugin) to get the frame</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,87" id="srcline87"> 87</a></span><span class="line">            <span class="comment">% size used by the environment.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,88" id="srcline88"> 88</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,89" id="srcline89"> 89</a></span><span class="line">            <span class="keyword">if</span>(<span class="mxinfo " id="T2:U4"><span class="mxinfo " id="T3:U5"><span class="var type1" id="S44T55U252">plugin</span>.inputVectorSize</span> &lt; <span class="mxinfo " id="T3:U7">0</span></span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,90" id="srcline90"> 90</a></span><span class="line">                <span class="var type0" id="S44T0U258">plugin</span>.inputVectorSize = <span class="message error" id="M10F146C">getSamplesPerFrame(<span class="var type1" id="S44T55U262">plugin</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,91" id="srcline91"> 91</a></span><span class="line">                <span class="mxinfo " id="T3:U9"><span class="mxinfo " id="T3:U10"><span class="var type1" id="S44T55U266">plugin</span>.inputVectorNumPerHop</span> = <span class="mxinfo " id="T3:U12"><span class="mxinfo " id="T3:U13"><span class="var type1" id="S44T55U270">plugin</span>.hopSize</span>/<span class="mxinfo " id="T3:U15"><span class="var type1" id="S44T55U273">plugin</span>.inputVectorSize</span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,92" id="srcline92"> 92</a></span><span class="line">                <span class="mxinfo " id="T3:U17"><span class="mxinfo " id="T3:U18"><span class="var type1" id="S44T55U278">plugin</span>.loadedVectorNumThisHop</span> = <span class="mxinfo " id="T3:U20">0</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,93" id="srcline93"> 93</a></span><span class="line">            <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,94" id="srcline94"> 94</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,95" id="srcline95"> 95</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,96" id="srcline96"> 96</a></span><span class="line">            <span class="mxinfo " id="T5:U21"><span class="mxinfo " id="T5:U22"><span class="var type1" id="S44T55U284">plugin</span>.inputBuffer</span> = <span class="mxinfo " id="T5:U24">[<span class="mxinfo " id="T5:U25"><span class="mxinfo " id="T5:U26"><span class="var type1" id="S44T55U290">plugin</span>.inputBuffer</span>(<span class="mxinfo " id="T56:U28">(<span class="mxinfo " id="T3:U29"><span class="mxinfo " id="T3:U30"><span class="mxinfo " id="T3:U31">end</span>-<span class="mxinfo " id="T3:U32"><span class="var type1" id="S44T55U299">plugin</span>.inputVectorSize</span></span>+<span class="mxinfo " id="T3:U34">1</span></span>):end</span>,<span class="mxinfo " id="T25:U35">:</span>)</span>; <span class="var type1" id="S45T54U306">in</span>]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,97" id="srcline97"> 97</a></span><span class="line">            <span class="mxinfo " id="T3:U37"><span class="mxinfo " id="T3:U38"><span class="var type1" id="S44T55U310">plugin</span>.loadedVectorNumThisHop</span> = <span class="mxinfo " id="T3:U40"><span class="mxinfo " id="T3:U41"><span class="var type1" id="S44T55U314">plugin</span>.loadedVectorNumThisHop</span> + <span class="mxinfo " id="T3:U43">1</span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,98" id="srcline98"> 98</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,99" id="srcline99"> 99</a></span><span class="line">            <span class="keyword">if</span> (<span class="mxinfo " id="T2:U44"><span class="mxinfo " id="T3:U45"><span class="var type1" id="S44T55U322">plugin</span>.loadedVectorNumThisHop</span> == <span class="mxinfo " id="T3:U47"><span class="var type1" id="S44T55U325">plugin</span>.inputVectorNumPerHop</span></span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,100" id="srcline100">100</a></span><span class="line">                <span class="comment">%   process the signal here</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,101" id="srcline101">101</a></span><span class="line">                <span class="mxinfo " id="T57:U49"><span class="var type1" id="S48T57U329">processedSig</span> = <span class="mxinfo " id="T57:U51">Kraft_ambience_extraction(<span class="var type1" id="S44T55U332">plugin</span>, <span class="mxinfo " id="T6:U53"><span class="mxinfo " id="T6:U54"><span class="var type1" id="S44T55U335">plugin</span>.windowFuncInput</span>.*<span class="mxinfo " id="T5:U56"><span class="var type1" id="S44T55U338">plugin</span>.inputBuffer</span></span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,102" id="srcline102">102</a></span><span class="line">                <span class="comment">%   overlap and add</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,103" id="srcline103">103</a></span><span class="line">                <span class="mxinfo " id="T5:U58"><span class="mxinfo " id="T5:U59"><span class="var type1" id="S44T55U343">plugin</span>.outputBuffer</span> = <span class="mxinfo " id="T58:U61"><span class="mxinfo " id="T5:U62"><span class="var type1" id="S44T55U347">plugin</span>.outputBuffer</span> + <span class="mxinfo " id="T58:U64"><span class="mxinfo " id="T6:U65"><span class="var type1" id="S44T55U351">plugin</span>.windowFuncOutput</span>.*<span class="var type1" id="S48T57U353">processedSig</span></span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,104" id="srcline104">104</a></span><span class="line">            <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,105" id="srcline105">105</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,106" id="srcline106">106</a></span><span class="line">            <span class="comment">%   output buffering</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,107" id="srcline107">107</a></span><span class="line">            <span class="mxinfo " id="T5:U68"><span class="var type1" id="S43T5U356">out</span> = <span class="mxinfo " id="T5:U70"><span class="mxinfo " id="T5:U71"><span class="var type1" id="S44T55U359">plugin</span>.outputBuffer</span>(<span class="mxinfo " id="T56:U73"><span class="mxinfo " id="T3:U74"><span class="mxinfo " id="T3:U75">(<span class="mxinfo " id="T3:U76"><span class="mxinfo " id="T3:U77"><span class="var type1" id="S44T55U367">plugin</span>.loadedVectorNumThisHop</span>-<span class="mxinfo " id="T3:U79">1</span></span>)*<span class="mxinfo " id="T3:U80"><span class="var type1" id="S44T55U371">plugin</span>.inputVectorSize</span></span>+<span class="mxinfo " id="T3:U82">1</span></span>:<span class="mxinfo " id="T3:U83"><span class="var type1" id="S44T55U376">plugin</span>.loadedVectorNumThisHop</span>*<span class="mxinfo " id="T3:U85"><span class="var type1" id="S44T55U379">plugin</span>.inputVectorSize</span></span>,<span class="mxinfo " id="T25:U87">:</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,108" id="srcline108">108</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,109" id="srcline109">109</a></span><span class="line">            <span class="keyword">if</span> (<span class="mxinfo " id="T2:U88"><span class="mxinfo " id="T3:U89"><span class="var type1" id="S44T55U387">plugin</span>.loadedVectorNumThisHop</span> == <span class="mxinfo " id="T3:U91"><span class="var type1" id="S44T55U390">plugin</span>.inputVectorNumPerHop</span></span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,110" id="srcline110">110</a></span><span class="line">                <span class="comment">%   the earliest hop size of signal is discarded from buffer</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,111" id="srcline111">111</a></span><span class="line">                <span class="mxinfo " id="T5:U93"><span class="mxinfo " id="T5:U94"><span class="var type1" id="S44T55U395">plugin</span>.outputBuffer</span> = <span class="mxinfo " id="T5:U96">[<span class="mxinfo " id="T5:U97"><span class="mxinfo " id="T5:U98"><span class="var type1" id="S44T55U401">plugin</span>.outputBuffer</span>(<span class="mxinfo " id="T56:U100"><span class="mxinfo " id="T3:U101"><span class="mxinfo " id="T3:U102"><span class="var type1" id="S44T55U406">plugin</span>.hopSize</span>+<span class="mxinfo " id="T3:U104">1</span></span>:end</span>,<span class="mxinfo " id="T25:U105">:</span>)</span>; <span class="mxinfo " id="T5:U106">zeros(<span class="mxinfo " id="T3:U107"><span class="var type1" id="S44T55U416">plugin</span>.hopSize</span>,<span class="mxinfo " id="T3:U109"><span class="var type1" id="S44T55U419">plugin</span>.outputChanNum</span>)</span>]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,112" id="srcline112">112</a></span><span class="line">                <span class="comment">%   clear the loading count</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,113" id="srcline113">113</a></span><span class="line">                <span class="mxinfo " id="T3:U111"><span class="mxinfo " id="T3:U112"><span class="var type1" id="S44T55U424">plugin</span>.loadedVectorNumThisHop</span> = <span class="mxinfo " id="T3:U114">0</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,114" id="srcline114">114</a></span><span class="line">            <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,115" id="srcline115">115</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,116" id="srcline116">116</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,117" id="srcline117">117</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,118" id="srcline118">118</a></span><span class="line">            <span class="comment">% mid-side processing</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,119" id="srcline119">119</a></span><span class="line">            <span class="mxinfo " id="T54:U115"><span class="mxinfo " id="T54:U116"><span class="var type1" id="S43T5U430">out</span>(<span class="mxinfo " id="T25:U118">:</span>,<span class="mxinfo " id="T46:U119"><span class="mxinfo " id="T3:U120">1</span>:<span class="mxinfo " id="T3:U121">2</span></span>)</span> = <span class="mxinfo " id="T54:U122">midSideProcessing(<span class="var type1" id="S44T55U437">plugin</span>, <span class="mxinfo " id="T54:U124"><span class="var type1" id="S43T5U439">out</span>(<span class="mxinfo " id="T25:U126">:</span>,<span class="mxinfo " id="T46:U127"><span class="mxinfo " id="T3:U128">1</span>:<span class="mxinfo " id="T3:U129">2</span></span>)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,120" id="srcline120">120</a></span><span class="line">            <span class="mxinfo " id="T54:U130"><span class="mxinfo " id="T54:U131"><span class="var type1" id="S43T5U447">out</span>(<span class="mxinfo " id="T25:U133">:</span>,<span class="mxinfo " id="T46:U134"><span class="mxinfo " id="T3:U135">3</span>:<span class="mxinfo " id="T3:U136">4</span></span>)</span> = <span class="mxinfo " id="T54:U137">midSideProcessing(<span class="var type1" id="S44T55U454">plugin</span>, <span class="mxinfo " id="T54:U139"><span class="var type1" id="S43T5U456">out</span>(<span class="mxinfo " id="T25:U141">:</span>,<span class="mxinfo " id="T46:U142"><span class="mxinfo " id="T3:U143">3</span>:<span class="mxinfo " id="T3:U144">4</span></span>)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,121" id="srcline121">121</a></span><span class="line">            <span class="mxinfo " id="T54:U145"><span class="mxinfo " id="T54:U146"><span class="var type1" id="S43T5U464">out</span>(<span class="mxinfo " id="T25:U148">:</span>,<span class="mxinfo " id="T46:U149"><span class="mxinfo " id="T3:U150">5</span>:<span class="mxinfo " id="T3:U151">6</span></span>)</span> = <span class="mxinfo " id="T54:U152">midSideProcessing(<span class="var type1" id="S44T55U471">plugin</span>, <span class="mxinfo " id="T54:U154"><span class="var type1" id="S43T5U473">out</span>(<span class="mxinfo " id="T25:U156">:</span>,<span class="mxinfo " id="T46:U157"><span class="mxinfo " id="T3:U158">5</span>:<span class="mxinfo " id="T3:U159">6</span></span>)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,122" id="srcline122">122</a></span><span class="line">            <span class="mxinfo " id="T54:U160"><span class="mxinfo " id="T54:U161"><span class="var type1" id="S43T5U481">out</span>(<span class="mxinfo " id="T25:U163">:</span>,<span class="mxinfo " id="T46:U164"><span class="mxinfo " id="T3:U165">7</span>:<span class="mxinfo " id="T3:U166">8</span></span>)</span> = <span class="mxinfo " id="T54:U167">midSideProcessing(<span class="var type1" id="S44T55U488">plugin</span>, <span class="mxinfo " id="T54:U169"><span class="var type1" id="S43T5U490">out</span>(<span class="mxinfo " id="T25:U171">:</span>,<span class="mxinfo " id="T46:U172"><span class="mxinfo " id="T3:U173">7</span>:<span class="mxinfo " id="T3:U174">8</span></span>)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,123" id="srcline123">123</a></span><span class="line">        <span class="keyword">end</span></span></span>
+</pre>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="4,124" id="srcline124">124</a></span><span class="line">        <span class="keyword">function</span> reset(plugin)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,125" id="srcline125">125</a></span><span class="line">            <span class="comment">% This section contains instructions to reset the plugin</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,126" id="srcline126">126</a></span><span class="line">            <span class="comment">% between uses, or when the environment sample rate changes.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,127" id="srcline127">127</a></span><span class="line">            plugin.inputVectorSize = -1;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,128" id="srcline128">128</a></span><span class="line">            initializeProcessingBuffer(plugin);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,129" id="srcline129">129</a></span><span class="line">            initializeFilters(plugin);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,130" id="srcline130">130</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,131" id="srcline131">131</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="4,132" id="srcline132">132</a></span><span class="line">        <span class="keyword">function</span> set.Decorrelation_Strength(plugin, val)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,133" id="srcline133">133</a></span><span class="line">            <span class="comment">% This section contains instructions to execute if the</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,134" id="srcline134">134</a></span><span class="line">            <span class="comment">% specified property is modified. Properties associated with</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,135" id="srcline135">135</a></span><span class="line">            <span class="comment">% parameters are updated automatically. Use the set method to</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,136" id="srcline136">136</a></span><span class="line">            <span class="comment">% execute more complicated instructions.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,137" id="srcline137">137</a></span><span class="line">            plugin.Decorrelation_Strength = val;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,138" id="srcline138">138</a></span><span class="line">            initializeFilters(plugin);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,139" id="srcline139">139</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,140" id="srcline140">140</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,141" id="srcline141">141</a></span><span class="line">        <span class="keyword">function</span> out = midSideProcessing(plugin, in)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,142" id="srcline142">142</a></span><span class="line">            mid = (in(:,1) + in(:,2)) / 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,143" id="srcline143">143</a></span><span class="line">            side = (in(:,1) - in(:,2)) / 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,144" id="srcline144">144</a></span><span class="line">            mid = mid * (1-plugin.Width)* 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,145" id="srcline145">145</a></span><span class="line">            side = side * plugin.Width * 2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,146" id="srcline146">146</a></span><span class="line">            out = [mid + side, mid-side];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,147" id="srcline147">147</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,148" id="srcline148">148</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,149" id="srcline149">149</a></span><span class="line">        <span class="keyword">function</span> out = Kraft_ambience_extraction(plugin, in)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,150" id="srcline150">150</a></span><span class="line">            IN = fft(in, 2*plugin.windowSize);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,151" id="srcline151">151</a></span><span class="line">            IN = IN(1:plugin.windowSize, :);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,152" id="srcline152">152</a></span><span class="line">            IN_POWER = abs(IN).^2;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,153" id="srcline153">153</a></span><span class="line">            gl = sqrt(IN_POWER(:,1)./sum(IN_POWER,2));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,154" id="srcline154">154</a></span><span class="line">            gr = sqrt(IN_POWER(:,2)./sum(IN_POWER,2));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,155" id="srcline155">155</a></span><span class="line">            AMBINECE_SIG = (gl.*IN(:,2) - gr.*IN(:,1))./(gl.*plugin.H_A_R - gr.*plugin.H_A_L);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,156" id="srcline156">156</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,157" id="srcline157">157</a></span><span class="line">            OUT = [AMBINECE_SIG.*plugin.H_A_L,<span class="keyword">...</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,158" id="srcline158">158</a></span><span class="line">                   AMBINECE_SIG.*plugin.H_A_R]; </span></span>
+<span class="srcline"><span class="lineno"><a href="4,159" id="srcline159">159</a></span><span class="line">            OUT = [OUT, OUT, OUT, OUT];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,160" id="srcline160">160</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,161" id="srcline161">161</a></span><span class="line">            OUT(:, 1:2) = [OUT(:,1).*plugin.H_A_Fr, OUT(:,2).*plugin.H_A_Fr];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,162" id="srcline162">162</a></span><span class="line">            OUT(:, 5:6) = OUT(:, 1:2);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,163" id="srcline163">163</a></span><span class="line">            OUT(:, 3:4) = [OUT(:,1).*plugin.H_A_Rr, OUT(:,2).*plugin.H_A_Rr];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,164" id="srcline164">164</a></span><span class="line">            OUT(:, 7:8) = OUT(:, 3:4);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,165" id="srcline165">165</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,166" id="srcline166">166</a></span><span class="line"><span class="comment">%             OUT(:, 1:2) = [OUT(:,1).*plugin.H_A_Lo, OUT(:,2).*plugin.H_A_Lo];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,167" id="srcline167">167</a></span><span class="line">            OUT(:, 3:4) = [OUT(:,3).*plugin.H_A_Lo, OUT(:,4).*plugin.H_A_Lo];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,168" id="srcline168">168</a></span><span class="line"><span class="comment">%             OUT(:, 5:6) = [OUT(:,5).*plugin.H_A_Hi, OUT(:,6).*plugin.H_A_Hi];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,169" id="srcline169">169</a></span><span class="line">            OUT(:, 7:8) = [OUT(:,7).*plugin.H_A_Hi, OUT(:,8).*plugin.H_A_Hi];</span></span>
+<span class="srcline"><span class="lineno"><a href="4,170" id="srcline170">170</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,171" id="srcline171">171</a></span><span class="line">            out = real(ifft(OUT, 2*plugin.windowSize));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,172" id="srcline172">172</a></span><span class="line">            out = out(1:plugin.windowSize, :);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,173" id="srcline173">173</a></span><span class="line">            out = out*plugin.Output_Gain;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,174" id="srcline174">174</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,175" id="srcline175">175</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,176" id="srcline176">176</a></span><span class="line">        <span class="keyword">function</span> initializeProcessingBuffer(plugin)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,177" id="srcline177">177</a></span><span class="line">            plugin.inputBuffer = zeros(plugin.windowSize, plugin.inputChanNum);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,178" id="srcline178">178</a></span><span class="line">            plugin.outputBuffer = zeros(plugin.windowSize, plugin.outputChanNum);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,179" id="srcline179">179</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,180" id="srcline180">180</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="4,181" id="srcline181">181</a></span><span class="line">        <span class="keyword">function</span> initializeFilters(plugin)</span></span>
+<span class="srcline"><span class="lineno"><a href="4,182" id="srcline182">182</a></span><span class="line">            decorrelation_strength_filter = plugin.sigmaLR*plugin.Decorrelation_Strength;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,183" id="srcline183">183</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="4,184" id="srcline184">184</a></span><span class="line">            RL =(1/pi)*atan(decorrelation_strength_filter.*plugin.RLR) + (1/2);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,185" id="srcline185">185</a></span><span class="line">            RR = 1.- RL;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,186" id="srcline186">186</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="4,187" id="srcline187">187</a></span><span class="line">            plugin.H_A_L = RL.*complex(ones(size(RL)), zeros(size(RL)));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,188" id="srcline188">188</a></span><span class="line">            plugin.H_A_R = RR.*complex(zeros(size(RR)), ones(size(RR)));</span></span>
+<span class="srcline"><span class="lineno"><a href="4,189" id="srcline189">189</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,190" id="srcline190">190</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="4,191" id="srcline191">191</a></span><span class="line">            RLr =(1/pi)*atan(decorrelation_strength_filter.*plugin.RS_Fr) + (1/2);</span></span>
+<span class="srcline"><span class="lineno"><a href="4,192" id="srcline192">192</a></span><span class="line">            RRr = 1.- RLr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,193" id="srcline193">193</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,194" id="srcline194">194</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,195" id="srcline195">195</a></span><span class="line">            plugin.H_A_Rr = RRr.*plugin.sigmaBackFront;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,196" id="srcline196">196</a></span><span class="line">            plugin.H_A_Fr = 1-plugin.H_A_Rr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,197" id="srcline197">197</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,198" id="srcline198">198</a></span><span class="line">            plugin.H_A_Rr = 2*plugin.H_A_Rr;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,199" id="srcline199">199</a></span><span class="line">            plugin.H_A_Fr = 2*plugin.H_A_Fr</span></span>
+<span class="srcline"><span class="lineno"><a href="4,200" id="srcline200">200</a></span><span class="line">            </span></span>
+<span class="srcline"><span class="lineno"><a href="4,201" id="srcline201">201</a></span><span class="line">            plugin.H_A_Lo = plugin.sigmaLoHi;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,202" id="srcline202">202</a></span><span class="line">            plugin.H_A_Hi = 1-plugin.H_A_Lo;</span></span>
+<span class="srcline"><span class="lineno"><a href="4,203" id="srcline203">203</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,204" id="srcline204">204</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,205" id="srcline205">205</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="4,206" id="srcline206">206</a></span><span class="line"> </span></span>
+</pre>
+</div>
+</body>
+</html>

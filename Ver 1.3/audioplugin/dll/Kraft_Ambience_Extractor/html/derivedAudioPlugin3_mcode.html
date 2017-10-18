@@ -1,0 +1,29 @@
+<html>
+<body>
+<script src="resources/eml_report_loadable_data.js"></script>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,1" id="srcline1"> 1</a></span><span class="line"><span class="keyword">classdef</span> derivedAudioPlugin &lt; Kraft_Ambience_Extractor  <span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,2" id="srcline2"> 2</a></span><span class="line">    <span class="keyword">methods</span></span></span>
+</pre>
+</div>
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,3" id="srcline3"> 3</a></span><span class="line">        <span class="keyword">function</span> <span class="var type1" id="S4T11U9">plugin</span> = derivedAudioPlugin(<span class="var type1" id="S5T11U12">varargin</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,4" id="srcline4"> 4</a></span><span class="line">            <span class="comment">% Pass constructor args to plugin.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,5" id="srcline5"> 5</a></span><span class="line">            <span class="var type0" id="S4T0U16">plugin</span>@<span class="mxinfo " id="T11:U3"><span class="fcn" id="F4N2:B17">Kraft_Ambience_Extractor</span></span>(<span class="var type1" id="S5T10U19">varargin</span>{:});</span></span>
+<span class="srcline"><span class="lineno"><a href="3,6" id="srcline6"> 6</a></span><span class="line">            coder.allowpcode(<span class="string">'plain'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,7" id="srcline7"> 7</a></span><span class="line">        <span class="keyword">end</span></span></span>
+</pre>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,8" id="srcline8"> 8</a></span><span class="line">        <span class="keyword">function</span> setSampleRate(~, ~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,9" id="srcline9"> 9</a></span><span class="line">            <span class="comment">% Throw if plugin sets its own sample rate.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,10" id="srcline10">10</a></span><span class="line">            eml_assert(false, <span class="string">'A plug-in must not call setSampleRate() on itself'</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,11" id="srcline11">11</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,12" id="srcline12">12</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,13" id="srcline13">13</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,14" id="srcline14">14</a></span><span class="line"> </span></span>
+</pre>
+</div>
+</body>
+</html>
