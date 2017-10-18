@@ -38,12 +38,108 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"autosave" : 1,
+					"bgmode" : 0,
+					"border" : 0,
+					"clickthrough" : 0,
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 14,
+					"offset" : [ 0.0, 0.0 ],
+					"outlettype" : [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "", "list", "int", "", "", "" ],
+					"patching_rect" : [ 47.5, 395.0, 214.0, 22.0 ],
+					"save" : [ "#N", "vst~", "loaduniqueid", 0, 2, 8, "Kraft_Ambience_Extractor.vst", ";" ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_invisible" : 1,
+							"parameter_longname" : "vst~[1]",
+							"parameter_shortname" : "vst~[1]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"saved_object_attributes" : 					{
+						"annotation_name" : "",
+						"parameter_enable" : 1
+					}
+,
+					"snapshot" : 					{
+						"filetype" : "C74Snapshot",
+						"version" : 2,
+						"minorversion" : 0,
+						"name" : "snapshotlist",
+						"origin" : "vst~",
+						"type" : "list",
+						"subtype" : "Undefined",
+						"embed" : 1,
+						"snapshot" : 						{
+							"pluginname" : "Kraft_Ambience_Extractor.vst",
+							"plugindisplayname" : "Kraft_Ambience_Extractor",
+							"pluginsavedname" : "Kraft_Ambience_Extractor",
+							"pluginsaveduniqueid" : 0,
+							"version" : 1,
+							"isbank" : 0,
+							"isbase64" : 1,
+							"sliderorder" : [ 0, 1, 2 ],
+							"slidervisibility" : [ 1, 1, 1 ],
+							"blob" : "68.CMlaKA....fQ3MzZ....AzzUgAG....Y....C.....................................vO.B..+....7C...."
+						}
+,
+						"snapshotlist" : 						{
+							"current_snapshot" : 0,
+							"entries" : [ 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "Kraft_Ambience_Extractor",
+									"origin" : "Kraft_Ambience_Extractor.vst",
+									"type" : "VST",
+									"subtype" : "AudioEffect",
+									"embed" : 0,
+									"snapshot" : 									{
+										"pluginname" : "Kraft_Ambience_Extractor.vst",
+										"plugindisplayname" : "Kraft_Ambience_Extractor",
+										"pluginsavedname" : "Kraft_Ambience_Extractor",
+										"pluginsaveduniqueid" : 0,
+										"version" : 1,
+										"isbank" : 0,
+										"isbase64" : 1,
+										"sliderorder" : [ 0, 1, 2 ],
+										"slidervisibility" : [ 1, 1, 1 ],
+										"blob" : "68.CMlaKA....fQ3MzZ....AzzUgAG....Y....C.....................................vO.B..+....7C...."
+									}
+,
+									"fileref" : 									{
+										"name" : "Kraft_Ambience_Extractor",
+										"filename" : "Kraft_Ambience_Extractor.maxsnap",
+										"filepath" : "~/Documents/Max 7/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "97b91c16ef8086cdf415cf49b2f2172f"
+									}
+
+								}
+ ]
+						}
+
+					}
+,
+					"style" : "",
+					"text" : "vst~ 2 8 Kraft_Ambience_Extractor.vst",
+					"varname" : "vst~[1]",
+					"viewvisibility" : 0
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-11",
 					"maxclass" : "spectroscope~",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 266.0, 553.0, 300.0, 100.0 ],
+					"patching_rect" : [ 274.0, 597.0, 300.0, 100.0 ],
 					"style" : ""
 				}
 
@@ -55,7 +151,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 266.0, 438.5, 300.0, 100.0 ],
+					"patching_rect" : [ 274.0, 482.5, 300.0, 100.0 ],
 					"style" : ""
 				}
 
@@ -129,104 +225,6 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 28.571428, 553.0, 44.0, 44.0 ],
 					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"autosave" : 1,
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"fontname" : "Arial",
-					"fontsize" : 13.0,
-					"id" : "obj-35",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 14,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "", "list", "int", "", "", "" ],
-					"patching_rect" : [ 28.571428, 395.0, 231.0, 23.0 ],
-					"save" : [ "#N", "vst~", "loaduniqueid", 0, 2, 8, "Kraft_Ambience_Extractor.vst", ";" ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_invisible" : 1,
-							"parameter_longname" : "vst~",
-							"parameter_shortname" : "vst~",
-							"parameter_type" : 3
-						}
-
-					}
-,
-					"saved_object_attributes" : 					{
-						"annotation_name" : "",
-						"parameter_enable" : 1
-					}
-,
-					"snapshot" : 					{
-						"filetype" : "C74Snapshot",
-						"version" : 2,
-						"minorversion" : 0,
-						"name" : "snapshotlist",
-						"origin" : "vst~",
-						"type" : "list",
-						"subtype" : "Undefined",
-						"embed" : 1,
-						"snapshot" : 						{
-							"pluginname" : "Kraft_Ambience_Extractor.vst",
-							"plugindisplayname" : "Kraft_Ambience_Extractor",
-							"pluginsavedname" : "Kraft_Ambience_Extractor",
-							"pluginsaveduniqueid" : 0,
-							"version" : 1,
-							"isbank" : 0,
-							"isbase64" : 1,
-							"sliderorder" : [ 0, 1, 2 ],
-							"slidervisibility" : [ 1, 1, 1 ],
-							"blob" : "68.CMlaKA....fQ3MzZ....AzzUgAG....Y....C.....................................vO.B..+....7Cf..."
-						}
-,
-						"snapshotlist" : 						{
-							"current_snapshot" : 0,
-							"entries" : [ 								{
-									"filetype" : "C74Snapshot",
-									"version" : 2,
-									"minorversion" : 0,
-									"name" : "Kraft_Ambience_Extractor",
-									"origin" : "Kraft_Ambience_Extractor.vst",
-									"type" : "VST",
-									"subtype" : "AudioEffect",
-									"embed" : 0,
-									"snapshot" : 									{
-										"pluginname" : "Kraft_Ambience_Extractor.vst",
-										"plugindisplayname" : "Kraft_Ambience_Extractor",
-										"pluginsavedname" : "Kraft_Ambience_Extractor",
-										"pluginsaveduniqueid" : 0,
-										"version" : 1,
-										"isbank" : 0,
-										"isbase64" : 1,
-										"sliderorder" : [ 0, 1, 2 ],
-										"slidervisibility" : [ 1, 1, 1 ],
-										"blob" : "68.CMlaKA....fQ3MzZ....AzzUgAG....Y....C.....................................vO.B..+....7Cf..."
-									}
-,
-									"fileref" : 									{
-										"name" : "Kraft_Ambience_Extractor",
-										"filename" : "Kraft_Ambience_Extractor.maxsnap",
-										"filepath" : "~/Documents/Max 7/Snapshots",
-										"filepos" : -1,
-										"snapshotfileid" : "97b91c16ef8086cdf415cf49b2f2172f"
-									}
-
-								}
- ]
-						}
-
-					}
-,
-					"style" : "",
-					"text" : "vst~ 2 8 Kraft_Ambience_Extractor.vst",
-					"varname" : "vst~",
-					"viewvisibility" : 0
 				}
 
 			}
@@ -388,7 +386,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 349.0, 186.0, 70.0, 23.0 ],
+					"patching_rect" : [ 349.0, 184.0, 70.0, 23.0 ],
 					"style" : "",
 					"text" : "open"
 				}
@@ -421,8 +419,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 274.0, 395.0, 100.0, 24.0 ],
-					"presentation_rect" : [ 199.0, 395.0, 100.0, 24.0 ]
+					"patching_rect" : [ 274.0, 395.0, 263.258087, 69.0 ],
+					"presentation_rect" : [ 274.0, 395.0, 263.258087, 69.0 ]
 				}
 
 			}
@@ -503,64 +501,22 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 1 ],
+					"destination" : [ "obj-13", 1 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
+					"destination" : [ "obj-13", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
+					"destination" : [ "obj-13", 0 ],
 					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"source" : [ "obj-15", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"source" : [ "obj-18", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"source" : [ "obj-20", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 1 ],
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"source" : [ "obj-3", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-20", 0 ],
-					"source" : [ "obj-34", 0 ]
 				}
 
 			}
@@ -568,7 +524,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"order" : 0,
-					"source" : [ "obj-35", 0 ]
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
@@ -576,7 +532,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
 					"order" : 0,
-					"source" : [ "obj-35", 1 ]
+					"source" : [ "obj-13", 1 ]
 				}
 
 			}
@@ -584,7 +540,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-22", 1 ],
 					"order" : 1,
-					"source" : [ "obj-35", 1 ]
+					"source" : [ "obj-13", 1 ]
 				}
 
 			}
@@ -592,27 +548,87 @@
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"order" : 1,
-					"source" : [ "obj-35", 0 ]
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-39", 0 ],
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-20", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 1 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"order" : 1,
+					"source" : [ "obj-34", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-20", 0 ],
+					"order" : 0,
+					"source" : [ "obj-34", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"order" : 1,
 					"source" : [ "obj-38", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
+					"destination" : [ "obj-39", 0 ],
+					"order" : 0,
+					"source" : [ "obj-38", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
 					"source" : [ "obj-39", 0 ]
 				}
 
 			}
  ],
 		"parameters" : 		{
-			"obj-35" : [ "vst~", "vst~", 0 ]
+			"obj-13" : [ "vst~[1]", "vst~[1]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
