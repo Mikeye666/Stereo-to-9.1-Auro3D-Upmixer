@@ -138,7 +138,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2626.0, 1181.0, 41.0, 22.0 ],
-					"presentation_rect" : [ 2624.0, 1182.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "atodb"
 				}
@@ -179,7 +178,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 1117.75, 617.0, 29.5, 22.0 ],
-					"presentation_rect" : [ 1119.0, 561.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "*~"
 				}
@@ -193,7 +191,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 1037.0, 617.0, 29.5, 22.0 ],
-					"presentation_rect" : [ 1039.0, 565.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "*~"
 				}
@@ -207,7 +204,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 968.0, 617.0, 29.5, 22.0 ],
-					"presentation_rect" : [ 971.0, 564.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "*~"
 				}
@@ -221,7 +217,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 904.0, 617.0, 29.5, 22.0 ],
-					"presentation_rect" : [ 904.25, 565.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "*~"
 				}
@@ -235,7 +230,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 833.25, 617.0, 29.5, 22.0 ],
-					"presentation_rect" : [ 847.75, 562.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "*~"
 				}
@@ -1420,7 +1414,7 @@
 					"outlettype" : [ "float" ],
 					"patching_rect" : [ 2544.0, 717.0, 41.0, 22.0 ],
 					"style" : "",
-					"text" : "/ 127."
+					"text" : "/ 128."
 				}
 
 			}
@@ -4523,7 +4517,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-180", 0 ],
+					"order" : 0,
+					"source" : [ "obj-198", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-54", 0 ],
+					"order" : 1,
 					"source" : [ "obj-198", 0 ]
 				}
 
@@ -5624,39 +5627,39 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-193" : [ "vst~", "vst~", 0 ],
-			"obj-151" : [ "number[10]", "number", 0 ],
-			"obj-196" : [ "gain~[5]", "gain~", 0 ],
-			"obj-71" : [ "live.gain~[2]", "live.gain~", 0 ],
-			"obj-49" : [ "live.gain~[9]", "live.gain~", 0 ],
-			"obj-74" : [ "live.gain~[5]", "live.gain~", 0 ],
-			"obj-172" : [ "number[4]", "number[4]", 0 ],
-			"obj-104" : [ "live.gain~[11]", "live.gain~", 0 ],
-			"obj-177" : [ "number[5]", "number[4]", 0 ],
-			"obj-171" : [ "gain~", "gain~", 0 ],
-			"obj-153" : [ "dial[3]", "dial[3]", 0 ],
-			"obj-75" : [ "dial[1]", "dial[1]", 0 ],
-			"obj-229" : [ "number[9]", "number", 0 ],
-			"obj-184" : [ "gain~[4]", "gain~", 0 ],
-			"obj-72" : [ "live.gain~[3]", "live.gain~", 0 ],
-			"obj-210" : [ "number[8]", "number", 0 ],
-			"obj-183" : [ "number[6]", "number[6]", 0 ],
-			"obj-197" : [ "gain~[6]", "gain~", 0 ],
-			"obj-26" : [ "live.gain~[8]", "live.gain~", 0 ],
-			"obj-159" : [ "live.gain~[14]", "live.gain~", 0 ],
-			"obj-110" : [ "number[3]", "number", 0 ],
 			"obj-99" : [ "live.gain~[10]", "live.gain~", 0 ],
-			"obj-134" : [ "dial[4]", "dial[1]", 0 ],
-			"obj-84" : [ "number", "number", 0 ],
-			"obj-109" : [ "live.gain~[13]", "live.gain~", 0 ],
 			"obj-70" : [ "live.gain~[1]", "live.gain~", 0 ],
-			"obj-157" : [ "number[2]", "number", 0 ],
+			"obj-49" : [ "live.gain~[9]", "live.gain~", 0 ],
+			"obj-153" : [ "dial[3]", "dial[3]", 0 ],
 			"obj-69" : [ "live.gain~", "live.gain~", 0 ],
-			"obj-50" : [ "live.gain~[6]", "live.gain~", 0 ],
-			"obj-73" : [ "live.gain~[4]", "live.gain~", 0 ],
+			"obj-196" : [ "gain~[5]", "gain~", 0 ],
 			"obj-105" : [ "live.gain~[12]", "live.gain~", 0 ],
+			"obj-210" : [ "number[8]", "number", 0 ],
+			"obj-184" : [ "gain~[4]", "gain~", 0 ],
+			"obj-73" : [ "live.gain~[4]", "live.gain~", 0 ],
 			"obj-261" : [ "gain~[3]", "gain~", 0 ],
-			"obj-178" : [ "gain~[1]", "gain~", 0 ]
+			"obj-193" : [ "vst~", "vst~", 0 ],
+			"obj-157" : [ "number[2]", "number", 0 ],
+			"obj-151" : [ "number[10]", "number", 0 ],
+			"obj-177" : [ "number[5]", "number[4]", 0 ],
+			"obj-178" : [ "gain~[1]", "gain~", 0 ],
+			"obj-159" : [ "live.gain~[14]", "live.gain~", 0 ],
+			"obj-71" : [ "live.gain~[2]", "live.gain~", 0 ],
+			"obj-134" : [ "dial[4]", "dial[1]", 0 ],
+			"obj-26" : [ "live.gain~[8]", "live.gain~", 0 ],
+			"obj-84" : [ "number", "number", 0 ],
+			"obj-172" : [ "number[4]", "number[4]", 0 ],
+			"obj-110" : [ "number[3]", "number", 0 ],
+			"obj-104" : [ "live.gain~[11]", "live.gain~", 0 ],
+			"obj-171" : [ "gain~", "gain~", 0 ],
+			"obj-74" : [ "live.gain~[5]", "live.gain~", 0 ],
+			"obj-229" : [ "number[9]", "number", 0 ],
+			"obj-109" : [ "live.gain~[13]", "live.gain~", 0 ],
+			"obj-183" : [ "number[6]", "number[6]", 0 ],
+			"obj-75" : [ "dial[1]", "dial[1]", 0 ],
+			"obj-50" : [ "live.gain~[6]", "live.gain~", 0 ],
+			"obj-197" : [ "gain~[6]", "gain~", 0 ],
+			"obj-72" : [ "live.gain~[3]", "live.gain~", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
